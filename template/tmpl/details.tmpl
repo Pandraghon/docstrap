@@ -141,8 +141,7 @@ var self = this;
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<?js= self.linkto(meta.shortpath) ?><?js if (this.navOptions.linenums) {?>,
-				 <?js= self.linkto(meta.shortpath, 'line ' + meta.lineno, null, 'sunlight-1-line-' + meta.lineno) ?><?js } ?>
+				<a href="https://github.com/bdistin/fs-nextra/blob/master/src/<?js= meta.shortpath.slice(0, -5) + "#" + meta.lineno ?>"><?js= meta.shortpath.slice(0, -5) + "#" + meta.lineno ?></a>
 			</li>
 		</ul>
 	</dd>
