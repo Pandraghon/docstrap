@@ -4,7 +4,8 @@ var self = this;
 ?>
 <hr>
 <dt class="name" id="<?js= id ?>">
-    <h4 id="<?js= id ?>"><?js= data.attribs + name + (data.signature ? data.signature : '') ?></h4>
+
+    <h4 id="<?js= id ?>"><?js= data.attribs + name + (data.signature ? (/>(external:[^<]+)</.test(data.signature) && this.find({longname: /external:\w+/.exec(data.signature)[0]})[0] ? `<span class="type-signature"> :<a href="${this.find({longname: /external:\w+/.exec(data.signature)[0]})[0].see[0].slice(7, -1)}">${/external:\w+/.exec(data.signature)[0]}</a></span>` : data.signature) : '') ?></h4>
 
     <?js if (data.summary) { ?>
     <p class="summary"><?js= summary ?></p>

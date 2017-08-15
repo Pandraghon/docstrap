@@ -4,7 +4,7 @@
 ?>
 
 <?js if (data.augments && data.augments.length) { ?>
-    <ul><?js data.augments.forEach(function(a) { ?>
-        <li><?js= self.linkto(a, a) ?></li>
-    <?js }) ?></ul>
+    <ul><?js data.augments.forEach(function(name) { const match = name.startsWith('external') ? self.find({longname: name}) : undefined; ?>
+        <li><?js if(match && match[0]) { ?><?js= `<a href="${match[0].see[0].slice(7, -1)}">${name}</a>` ?><?js } else { ?><?js= self.linkto(name, self.htmlsafe(name)) ?></li>
+    <?js }}) ?></ul>
 <?js } ?>
